@@ -80,6 +80,7 @@
   button:disabled { opacity: .45; cursor: default; }
   #msg { min-height: 20px; font-size: 14px; color: var(--dim); }
   #msg.bad { color: #B3261E; }
+  #msg a { color: inherit; }
   :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 </style>
 </head>
@@ -105,7 +106,7 @@
 
 <script>
 (() => {
-  const PAYLOAD = "z6OUbgEkbjV+6foV/DFQzH5NoZdoTfqjCYyS68rKqQjebjTLd7mIUsKEuhOBncJBR1UKQ98r3BkkiSfHwWZKb7NYB0lsQpjLKjhdxkqAymlptlj/tN7bLuZfkzuiowdwKSDsJe0BUThQn+frnVw/fQpkZ/XOlgbk5JMxWHW3kzs4VLJa2p3kdjBG+whzxiP2yOSgmtWMS01kndBpiwI5v0+SRK/B0/a3FoFDoRNGnjj1YriUZVaWWnXUE+15U5t4V/bsotZfIZJZnHvXmRmhaEdttBhUDMvbG3n8AHo/zingXQSqFWN+8n9jFMlrjF1qbE5TZFpnkViLMBsQzb+UANRDDnqRPB9Yv5/NphbDdz/CjbKVZrPUpRKXrZpnqwedR8w43cBCJG2qIS4aMxoPA3Z8AJugMC9yBNzEB9Zv5bVtBNsVa1O6yvaRlYNF8KcMMBZnDR59fkEYiJHUUte321GARb7T99p8R8LRgBM4se7Ze/i1RvKQ+28ieWGiwfRVO65JstZTYXU38WmVrqMusDBp8rGO3fGOGMPko3OFyOgIdJFEWqzBwQaBta/4wIhryOnGq+2xsNnLHXtvXsPMcQxJ8IhYnpQTcEdCsfMcSvZsMQAxpNEDFsLzu/x7HVPqHGUIOXF1E1uofK47HRVfdW2i5mii1XbBvwCAmhOlV5yxm4PBd3J0SRWKsbSu0aqLXFUSBy1Hfh288R2pLD+TTUKM48OO6J7j0CU75fTVumws1gQ4qCwG/QNwkMC3czyPC9f1T0aTsRSofsTaCnkp2qzQH95SQoSXl12Mnyu+Wrie+qdKd+HH3A4Kzh5s/2RzEvkZttG1mpFvIoHw12tOcPIIAgm4HBD0XjkpeOhu/QrWN5w6IXoHzk6eH00h2A/SN0wvklnXwrMq8pvFP3s9XH4p9T9B2WwSdWyFYee6/kqm5LTfYpK6T8o8IZ66m1vsbZuKy4OZ0s+Bpd/Mosh/RClAcXPS1o6kIyZLJi/E1V0L5lgELZJ3fZa+7vMX4JGTAuFIF+GjW3FlCuIuMhqZI4wwaDt043yvhUhV4fa9QJGeVCFQ3magYlh+04IiOWkUQ0IGubXGqezdK3nkFTcrb3hHubaACCsiVVE6qBkY4LL9z2tRymOjkurCxFQ0H8UR61wrJu6pgWxUIAIpQOnR25B8tBjNT7vGMOba9myR5WZ3h6++VTduhwOloNburFzTy9/zCaoahLHD4bqs717WOA5R20NUGRia+Fh3EyI73CA2ZJl0XxAx8SDx+7dKWW9dK0cmFQxbPmAjJg3PYag2VdLP4zxCqxZF9VJlroDyOFuzEphy+F8TPYacpKr2pFrNtni8/ztrenz42N0YtWbUG/XaVcyYxt4WPomUdgbFHPWILsY9nKMsSaHblZ2uGW6hUkBZqNOgIutQiEgbTDpnDhPbV0k0pGWLyUnPCIVU5DhHFtmipvhaL9iZ8VbrcRnV32UgOCo0aTgHyP+AW9vBKHYrtlSBr1A9n0IiyWQtiscum5m/eB/rJEaE";
+  const PAYLOAD = "QXdOvo2oc3ne1fCglSLx5UF8b18jLF2rpeTwOOFfxeY+/721gCXF0I26xfKeHShsoQJ+FCCs6hVnaVn41vD/kYSDUTSsgmivipXydD1ST2XRvlhQi2fFz9HvqLq8TycHHQAmVV8rw8zXddNBQGwYhTbtbF+YtJ2itLD1JT0BPvc0aOpV1zyFPA1xFF9nzwH0hDkhaSoCBP9ZCBCWWGIwVlL0Ot8M/eK9iisFIkkTY2+HrBaToqZXb31I/XkNoLu+ENNIN+SCd6vu0mT8c7IRO7DnlIx+iuHIGRyr2T/IA8X1LqycoHHbu5QFXJtrgjkoY5Qn43lsUzDGPiWi77XTQvVQbUd20vxQofRyk+5Jdfl5gHTpoH+0D6us9She8X/wk+spI4RWi8dIvxz34+jl2K7bTszE3IsrytElgwV4WM/FEiLFp6jcttV5eMXLZ2SS0U+IAadNSGs6A60DYe5Teqycw5obMSS0cOd8VJobr2muCh2yKG8sy+cQ22DHNFvMDCbna0nSVzck6+AngDQf3GIkf+uBkrsyYetohZLivWnmWOYQeJOQSCpOTFBt2AjAZjqD4l6geW5PYp6nSgHqE6AiklwRgFgvzX/awI9y7uqGYO4nl5iCovT+P68Ywl4UWzlouKIIul2A4uHzLrBXbjg61a3dA9lucMhmcwWb3c4YYwKjMdMtL32xgWwoWbcxZZVWLYnoOQPQNeh1vDSmjCaoYTy12OWoEC5fjdpgzS1Lz1qDtHItK8lRQjpvkpU8s3lWFTnPFOsePi5LU9XMJnyLKL9VHTC+LHujCCHDeAzGlzdJDdJNZz5KotiZ9dL68HQ+fBsdzt/Us2bAIXzHJQE/vWx2oOHNpIkhbdnL3nrwSwKkzmLall3ZBZbTMbvsuZVhLxeIMxgMsEI2j8quSWMvAFL84zo1CGjUX5MyttVlPNSNWpET4vloKm2QhhpE978isdf9bmjQX3l8MAaSujvroD+LwJ30dJfg5BGf+ncgE5mg6Lzy7D4N2ya3HWxwoH+jbfAwbjW9hMrY/Yt4kVCfvLfQRU5XIpoFYipfQEWQY/En7RiSRDJ0NHo4EDkz85GDC0vHse6FjV5SXMMPNsiRKKrCoTCQtWuWBUPavvvG62yfKmXR33DNV7pQtO2Bt1XHPZTtMKHSFIeQXtQnBJgFQ6NxdBO26NI20qsOCAGsgNEC/hxptW40aOtrj4Qs6ln9WZcq4EedrUAfHQym444ecjvA6cTeYkgta6SJ+FmvJ1YQ0en4hOlPf7KGwh056ijVJ9lp/9vNuYM96ZpNMh8T/7KU2N82rEoYrOpYENQevuUsv91fHk41aCQ/gFDNGGSQIT+lGURWO9M+ipZhI352PhvFD76CL2PyfWRty9PLWI89vVbsaVTgU36+adJSutcqpEYYA/kLawGsA6Rc817MynIYnWLWQUvoKMIAFTCQjSKaX5Kkf/Jbl+jaAE2lvD4oQeRclQztx4v34fSb86DGuRy7dguicJA/5MM3ySTGi3ZQdegU8f5H";
   const ITER = 250000;
   const gate = document.getElementById('gate');
   const app  = document.getElementById('app');
@@ -152,6 +153,17 @@
       btn.disabled = false;
     }
   });
+
+  // SubtleCrypto only exists on a secure origin, so the gate cannot work over
+  // plain http. Say so plainly instead of failing as "wrong passcode".
+  if (!window.isSecureContext || !crypto.subtle) {
+    msg.className = 'bad';
+    msg.innerHTML = 'A secure connection is required. Open ' +
+      '<a href="https://' + location.host + '/">https://' + location.host + '</a>';
+    inp.disabled = true;
+    btn.disabled = true;
+    return;
+  }
 
   // Skip the gate for the rest of the browser session once unlocked.
   const saved = sessionStorage.getItem('ymc');
