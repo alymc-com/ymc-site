@@ -1,0 +1,4 @@
+# never publish these — the repo is public, the page content is not
+.passcode
+_content.html
+build.py
